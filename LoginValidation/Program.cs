@@ -12,7 +12,10 @@ namespace LoginValidation
     {
         static void Main(string[] args)
         {
-            
+            string input = Console.ReadLine();
+            string output = GetUserEmail(input);
+
+            Console.WriteLine(output);
         }
 
         static List<string> email = new List<string> { };
