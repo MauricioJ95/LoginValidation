@@ -5,3 +5,10 @@ C:\git\LoginValidation\LoginValidation\obj\Debug\LoginValidation.csprojAssemblyR
 C:\git\LoginValidation\LoginValidation\obj\Debug\LoginValidation.csproj.CoreCompileInputs.cache
 C:\git\LoginValidation\LoginValidation\obj\Debug\LoginValidation.exe
 C:\git\LoginValidation\LoginValidation\obj\Debug\LoginValidation.pdb
+C:\Git\Shark\LoginValidation\LoginValidation\bin\Debug\LoginValidation.exe.config
+C:\Git\Shark\LoginValidation\LoginValidation\bin\Debug\LoginValidation.exe
+C:\Git\Shark\LoginValidation\LoginValidation\bin\Debug\LoginValidation.pdb
+C:\Git\Shark\LoginValidation\LoginValidation\obj\Debug\LoginValidation.csprojAssemblyReference.cache
+C:\Git\Shark\LoginValidation\LoginValidation\obj\Debug\LoginValidation.csproj.CoreCompileInputs.cache
+C:\Git\Shark\LoginValidation\LoginValidation\obj\Debug\LoginValidation.exe
+C:\Git\Shark\LoginValidation\LoginValidation\obj\Debug\LoginValidation.pdb

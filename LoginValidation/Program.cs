@@ -12,69 +12,77 @@ namespace LoginValidation
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Please input an email in this format: example@example.com");
-            string email = Console.ReadLine();
-            GetUserEmail(email);
-
-            Console.WriteLine("Please input a password in with at least 1 capital letter and 1 number.");
-            string password = Console.ReadLine();
-            GetUserPassword(password);
-        }
-
-        static List<string> email = new List<string> { };
-        static List<string> password = new List<string> { };
-
-        public static string GetUserEmail(string inputEmail)
-        {
-            string input;
-
-            bool isValidInput = false;
+            bool isValidInput = false, shouldContinue = false;
             do
             {
-                isValidInput = true;
-                input = Console.ReadLine();
-                if (Regex.IsMatch(input, @"^[A-Za-z0-9_]{3,}@[A-Za-z0-9_]{3,}.[A-Za-z0-9_]{2,3}$"))
+                shouldContinue = false;
+                do
                 {
-                    email.Add(inputEmail);
-                }
-                else
-                {
-                    Console.WriteLine("Email not valid.");
-                }
+                    Console.WriteLine("Please input an email in this format: example@example.com");
+                    string email = Console.ReadLine();
+                    isValidInput = ValidateUserEmail(email);
+                } while (!isValidInput);
 
-            } while (!isValidInput);
-            return input;
+                isValidInput = false;
+
+                do
+                {
+                    Console.WriteLine("Please input a password in with at least 1 capital letter and 1 number.");
+                    string password = Console.ReadLine();
+                    isValidInput = ValidateUserPassword(password);
+                } while (!isValidInput);
+
+                Console.WriteLine("Continue? y/n");
+                string input = Console.ReadLine();
+                if (input.Equals("y", StringComparison.CurrentCultureIgnoreCase))
+                {
+                    shouldContinue = true;
+                }
+            } while (shouldContinue);
         }
 
-        public static string GetUserPassword(string inputPassword)
-        {
-            string input;
+        static List<string> emailList = new List<string> { };
+        static List<string> passwordList = new List<string> { };
 
+        public static bool ValidateUserEmail(string inputEmail)
+        {
             bool isValidInput = false;
-            do
+            try
             {
+                if (!Regex.IsMatch(inputEmail, @"^[A-Za-z0-9_]{3,}@[A-Za-z0-9_]{3,}.[A-Za-z0-9_]{2,3}$"))
+                {
+                    throw new ArgumentException("Must input valid email address.");
+                }
+                emailList.Add(inputEmail);
                 isValidInput = true;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
 
-                input = Console.ReadLine();
-                if (!Regex.IsMatch(input, @"$^[A-z0-9]{5,}$"))
-                {
-                    password.Add(inputPassword);
-                }
-                else
-                {
-                    Console.WriteLine("Password not valid.");
-                }
+            return isValidInput;
+        }
 
-            } while (!isValidInput);
-            return input;
-        }
-        public static void AddEmail()
+        public static bool ValidateUserPassword(string inputPassword)
         {
-            email.Add(GetUserEmail("Email"));
-        }
-        public static void AddPassword()
-        {
-            password.Add(GetUserPassword("Password"));
+            bool isValidInput = false;
+            try
+            {
+                if (!Regex.IsMatch(inputPassword, @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{5,}$"))
+                {
+                    throw new ArgumentException("Must input valid password.");
+                }
+                passwordList.Add(inputPassword);
+                isValidInput = true;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+
+            return isValidInput;
+
         }
     }
 }
