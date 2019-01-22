@@ -1,0 +1,7 @@
+C:\git\LoginValidation\LoginValidation\bin\Debug\LoginValidation.exe.config
+C:\git\LoginValidation\LoginValidation\bin\Debug\LoginValidation.exe
+C:\git\LoginValidation\LoginValidation\bin\Debug\LoginValidation.pdb
+C:\git\LoginValidation\LoginValidation\obj\Debug\LoginValidation.csprojAssemblyReference.cache
+C:\git\LoginValidation\LoginValidation\obj\Debug\LoginValidation.csproj.CoreCompileInputs.cache
+C:\git\LoginValidation\LoginValidation\obj\Debug\LoginValidation.exe
+C:\git\LoginValidation\LoginValidation\obj\Debug\LoginValidation.pdb
