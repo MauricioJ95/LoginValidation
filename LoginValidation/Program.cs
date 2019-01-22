@@ -12,10 +12,13 @@ namespace LoginValidation
     {
         static void Main(string[] args)
         {
-            string input = Console.ReadLine();
-            string output = GetUserEmail(input);
+            Console.WriteLine("Please input an email in this format: example@example.com");
+            string email = Console.ReadLine();
+            GetUserEmail(email);
 
-            Console.WriteLine(output);
+            Console.WriteLine("Please input a password in with at least 1 capital letter and 1 number.");
+            string password = Console.ReadLine();
+            GetUserPassword(password);
         }
 
         static List<string> email = new List<string> { };
@@ -29,16 +32,14 @@ namespace LoginValidation
             do
             {
                 isValidInput = true;
-
-                Console.WriteLine("Please enter {0}", inputEmail);
                 input = Console.ReadLine();
-                if (!Regex.IsMatch(input, @"^[A-Za-z0-9_]{3,}@[A-Za-z0-9_]{3,}.[A-Za-z0-9_]{2,3}$"))
+                if (Regex.IsMatch(input, @"^[A-Za-z0-9_]{3,}@[A-Za-z0-9_]{3,}.[A-Za-z0-9_]{2,3}$"))
                 {
-                    Console.WriteLine("Email doesn't match specs, try again.");
+                    email.Add(inputEmail);
                 }
                 else
                 {
-                    AddEmail();
+                    Console.WriteLine("Email not valid.");
                 }
 
             } while (!isValidInput);
@@ -54,15 +55,14 @@ namespace LoginValidation
             {
                 isValidInput = true;
 
-                Console.WriteLine("Please enter {0}", inputPassword);
                 input = Console.ReadLine();
                 if (!Regex.IsMatch(input, @"$^[A-z0-9]{5,}$"))
                 {
-                    Console.WriteLine("Email doesn't match specs, try again.");
+                    password.Add(inputPassword);
                 }
                 else
                 {
-                    AddPassword();
+                    Console.WriteLine("Password not valid.");
                 }
 
             } while (!isValidInput);
